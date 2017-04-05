@@ -26,6 +26,18 @@ a {
     border-bottom: 2px solid transparent;
 }
 
+.score, button {
+  font-family: "Raleway";
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1px;
+  margin: 0px 20px 0px 20px;
+  text-decoration: none;
+  display: inline-block;
+}
+button {color: grey;}
+
 a:hover {
     border-color: white;
 }

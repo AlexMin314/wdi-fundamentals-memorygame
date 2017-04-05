@@ -13,8 +13,10 @@
     <h1>Memory Game</h1>
   </header>
   <nav>
+    <button type="button" id="reset" onclick="resetRound()">Reset!</button>
     <a href="#">Instructions</a>
     <a href="#">Game</a>
+    <div class="score" id="score">* Score: 0</div>
   </nav>
   <main>
     <h2>Instructions</h2>
@@ -28,7 +30,7 @@
       <span class="name">GA</span>
     </p>
   </footer>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" onload="createBoard()"></script>
 </body>
 
 </html>

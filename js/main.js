@@ -21,13 +21,25 @@ var cards = [{
 ];
 
 var cardInPlay = [];
+var gameScore = 0;
+
+function resetRound() {
+  for (var i = 0; i < cards.length; i++) {
+    var gameBoard = document.getElementById('game-board');
+    gameBoard.removeChild(gameBoard.firstChild);
+  }
+  createBoard();
+}
 
 function checkForMatch(cardId) {
-document.getElementsByTagName('img')[cardId].setAttribute('src', cards[cardId].cardImage);
-  if (cardInPlay.length === 2) {
-    if (cardInPlay[0] === cardInPlay[1])
+  var scoreSum;
+  document.getElementsByTagName('img')[cardId].setAttribute('src', cards[cardId].cardImage);
+  if (cardInPlay.length % 2 === 0) {
+    if (cardInPlay[0] === cardInPlay[1]) {
+      gameScore++;
       alert("You found a match!");
-    else
+      scoreSum = document.getElementById('score').innerHTML = '* Score: ' + gameScore;
+    } else
       alert("Sorry, try again.");
   }
 }
@@ -50,5 +62,3 @@ function createBoard() {
     gameBoard.appendChild(cardElement);
   }
 }
-
-createBoard();
