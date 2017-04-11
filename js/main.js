@@ -1,4 +1,11 @@
-var cards = [{
+/*
+*  Title: Memory Game with General Assembly
+*  Author: Alex Min
+*  Copyright 2017. General Assembly and Author all right reserved.
+*  Versoin: 1.5
+*/
+
+let cards = [{
     rank: "queen",
     suit: "hearts",
     cardImage: "images/queen-of-hearts.png"
@@ -20,45 +27,50 @@ var cards = [{
   }
 ];
 
-var cardInPlay = [];
-var gameScore = 0;
+let cardInPlay = [];
+let gameScore = 0;
 
-function resetRound() {
-  for (var i = 0; i < cards.length; i++) {
-    var gameBoard = document.getElementById('game-board');
-    gameBoard.removeChild(gameBoard.firstChild);
-  }
-  createBoard();
-}
 
 function checkForMatch(cardId) {
-  var scoreSum;
   document.getElementsByTagName('img')[cardId].setAttribute('src', cards[cardId].cardImage);
   if (cardInPlay.length % 2 === 0) {
     if (cardInPlay[0] === cardInPlay[1]) {
+      alert("You found a match! + 1 point!");
+      // Score will be added to html page.
       gameScore++;
-      alert("You found a match!");
-      scoreSum = document.getElementById('score').innerHTML = '* Score: ' + gameScore;
-    } else
+      let scoreSum = document.getElementById('score').innerHTML = '* Score: ' + gameScore;
+    }
+    else
       alert("Sorry, try again.");
   }
 }
 
 function flipCard() {
-  var cardId = this.getAttribute('data-id');
+  let cardId = this.getAttribute('data-id');
   cardInPlay.push(cards[cardId].rank);
   checkForMatch(cardId);
 }
 
+// When the first round started, this will be called by 'onload' of index.htm.
 function createBoard() {
-  for (var i = 0; i < cards.length; i++) {
-    var cardElement = document.createElement('img');
+  for (let i = 0; i < cards.length; i++) {
+    let cardElement = document.createElement('img');
     cardElement.setAttribute('src', "images/back.png");
     cardElement.setAttribute('data-id', i);
-    //data- attributes are meant to store data about an element
-    //that is not tied to a style.
     cardElement.addEventListener('click', flipCard);
-    var gameBoard = document.getElementById('game-board');
+    let gameBoard = document.getElementById('game-board');
     gameBoard.appendChild(cardElement);
   }
+}
+
+// This will be invocated when a user push 'reset' button on Nav.
+function resetRoundAndSuffle() {
+  for (let i = 0; i < cards.length; i++) {
+    let gameBoard = document.getElementById('game-board');
+    gameBoard.removeChild(gameBoard.firstChild);
+  }
+  //suffle Array cards randomly and reset Array cardInPlay for next round.
+  cards = cards.sort(function(a, b) {return 0.5 - Math.random();});
+  cardInPlay = [];
+  createBoard();
 }

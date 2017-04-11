@@ -27,30 +27,33 @@ a {
 }
 
 .score, button {
-  font-family: "Raleway";
-  font-size: 18px;
-  font-weight: 600;
-  color: white;
-  letter-spacing: 1px;
-  margin: 0px 20px 0px 20px;
-  text-decoration: none;
-  display: inline-block;
+    font-family: "Raleway";
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+    margin: 0px 20px 0px 20px;
+    text-decoration: none;
+    display: inline-block;
 }
-button {color: grey;}
+
+button {
+    color: grey;
+}
 
 a:hover {
     border-color: white;
 }
 
 p {
-  font-family: "Droid Serif", serif;
-  line-height: 26px;
-  font-size: 18px;
+    font-family: "Droid Serif", serif;
+    line-height: 26px;
+    font-size: 18px;
 }
+
 body {
     text-align: center;
     margin: 0px;
-
 }
 
 header {
@@ -89,20 +92,20 @@ footer {
 }
 
 .copyright {
-    float:left;
+    float: left;
 }
 
 .message {
-    float:right;
+    float: right;
 }
 
 .clearfix:after {
-  visibility: hidden;
-  display: block;
-  content: " ";
-  clear: both;
-  height: 0;
-  font-size: 0;
+    visibility: hidden;
+    display: block;
+    content: " ";
+    clear: both;
+    height: 0;
+    font-size: 0;
 }
 
 .name {
