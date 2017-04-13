@@ -6,9 +6,9 @@ DONE
 - basic game logic with GA
 - reset button
 - score
+- suffle
 
 Planned
-- card suffle.
 - showing card for 2 secs before game starts.
 - increase cards number to 8.
 
