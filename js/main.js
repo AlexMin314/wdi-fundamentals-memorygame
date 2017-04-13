@@ -58,8 +58,7 @@ function createBoard() {
     cardElement.setAttribute('src', "images/back.png");
     cardElement.setAttribute('data-id', i);
     cardElement.addEventListener('click', flipCard);
-    let gameBoard = document.getElementById('game-board');
-    gameBoard.appendChild(cardElement);
+    let gameBoard = document.getElementById('game-board').appendChild(cardElement);
   }
 }
 
@@ -70,7 +69,7 @@ function resetRoundAndSuffle() {
     gameBoard.removeChild(gameBoard.firstChild);
   }
   //suffle Array cards randomly and reset Array cardInPlay for next round.
-  cards = cards.sort(function(a, b) {return 0.5 - Math.random();});
+  cards = cards.sort(function() {return 0.5 - Math.random();});
   cardInPlay = [];
   createBoard();
 }
