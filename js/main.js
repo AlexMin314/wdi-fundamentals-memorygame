@@ -4,6 +4,7 @@
  *  Copyright 2017. General Assembly and Author all right reserved.
  *  Versoin: 1.5
  */
+
 (function cardGame() {
   var cards = [{
       rank: "queen",
@@ -30,7 +31,7 @@
   var cardInPlay = [],
       gameScore = 0;
 
-  // reset button
+  // Adding an event to the reset button
   document.getElementById('reset').addEventListener('click', resetRoundAndSuffle);
 
 
@@ -54,31 +55,35 @@
     checkForMatch(cardId);
   }
 
-  // When the first round started, this will be called by 'onload' of index.htm.
+  // When the first round started, this will be invoked by IIFE.
   function createBoard() {
     var i, cardElement, gameBoard;
     for (i = 0; i < cards.length; i++) {
       cardElement = document.createElement('img');
       cardElement.setAttribute('src', "images/back.png");
+      // using data-*
       cardElement.setAttribute('data-id', i);
       cardElement.addEventListener('click', flipCard);
       gameBoard = document.getElementById('game-board').appendChild(cardElement);
     }
   }
 
-  // This will be invocated when a user push 'reset' button on Nav.
+  // This will be invoked when a user push the 'reset' button on the <nav>.
   function resetRoundAndSuffle() {
     var i, gameBoard;
     for (i = 0; i < cards.length; i++) {
       gameBoard = document.getElementById('game-board');
       gameBoard.removeChild(gameBoard.firstChild);
     }
-    //suffle Array cards randomly and reset Array cardInPlay for next round.
+    //suffling the cards array randomly and reset that for next round.
     cards = cards.sort(function() {
       return 0.5 - Math.random();
     });
+
     cardInPlay = [];
     createBoard();
   }
+
+// game start
 createBoard();
 }());
