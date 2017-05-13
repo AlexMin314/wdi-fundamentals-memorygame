@@ -32,7 +32,7 @@
       gameScore = 0;
 
   // Adding an event to the reset button
-  document.getElementById('reset').addEventListener('click', resetRoundAndSuffle);
+  document.getElementById('reset').addEventListener('click', resetRoundAndshuffle);
 
 
   function checkForMatch(cardId) {
@@ -69,7 +69,7 @@
   }
 
   // This will be invoked when a user push the 'reset' button on the <nav>.
-  function resetRoundAndSuffle() {
+  function resetRoundAndshuffle() {
     var i, gameBoard;
     for (i = 0; i < cards.length; i++) {
       gameBoard = document.getElementById('game-board');
